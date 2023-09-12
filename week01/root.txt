@@ -1,0 +1,25 @@
+total 2
+drwxr-xr-x   1 root root  140 Aug  7 22:52 usr
+drwxr-xr-x   2 root root    3 Aug  7 22:52 srv
+lrwxrwxrwx   1 root root    8 Aug  7 22:52 sbin -> usr/sbin
+drwxr-xr-x   2 root root    3 Aug  7 22:52 opt
+drwxr-xr-x   2 root root    3 Aug  7 22:52 mnt
+lrwxrwxrwx   1 root root   10 Aug  7 22:52 libx32 -> usr/libx32
+lrwxrwxrwx   1 root root    9 Aug  7 22:52 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root    9 Aug  7 22:52 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root    7 Aug  7 22:52 lib -> usr/lib
+lrwxrwxrwx   1 root root    7 Aug  7 22:52 bin -> usr/bin
+drwxr-xr-x   1 root root  180 Aug  7 22:58 var
+drwxr-xr-x   3 root root  243 Aug  7 22:58 boot
+drwxr-xr-x  18 root root  308 Aug  7 22:58 rofs
+drwxr-xr-x  13 root root  228 Aug  7 22:59 snap
+dr-xr-xr-x   1 root root 2048 Aug  8 01:18 cdrom
+dr-xr-xr-x  13 root root    0 Sep 12 05:51 sys
+dr-xr-xr-x 251 root root    0 Sep 12 05:51 proc
+drwxr-xr-x   1 root root   60 Sep 12 05:51 media
+drwxr-xr-x   1 root root   60 Sep 12 05:51 home
+drwx------   1 root root   60 Sep 12 05:52 root
+drwxr-xr-x  19 root root 4120 Sep 12 05:52 dev
+drwxr-xr-x  35 root root 1040 Sep 12 05:52 run
+drwxr-xr-x   1 root root  640 Sep 12 05:53 etc
+drwxrwxrwt  18 root root  380 Sep 12 06:00 tmp

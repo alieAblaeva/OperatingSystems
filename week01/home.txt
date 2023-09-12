@@ -1,0 +1,13 @@
+total 0
+drwxr-xr-x 2 ubuntu ubuntu 60 Sep 12 05:51 Desktop
+drwx------ 3 ubuntu ubuntu 60 Sep 12 05:52 snap
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Videos
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Templates
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Public
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Pictures
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Music
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Downloads
+drwxr-xr-x 2 ubuntu ubuntu 40 Sep 12 05:52 Documents
+drwxrwxr-x 2 ubuntu ubuntu 80 Sep 12 06:06 week01
+drwxrwxr-x 2 ubuntu ubuntu 60 Sep 12 06:10 root_file
+drwxrwxr-x 2 ubuntu ubuntu 60 Sep 12 06:11 home_file
