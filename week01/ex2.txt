@@ -1,0 +1,52 @@
+    1  man sudo_root
+    2  mkdir ~/week01
+    3  giedt ~/week01/main.c
+    4  gedit ~/week01/main.c
+    5  gcc main.c -o ex4
+    6  sudo apt-get install gcc
+    7  gcc main.c -o ex4
+    8  gcc ~/week01/main.c -o ex4
+    9  ./ex4
+   10  clear
+   11  sudo apt-get install git
+   12  git clone https://github.com/alieAblaeva/OperatingSystem
+   13  cd ~/week01
+   14  cd ~
+   15  git add ~/ex4
+   16  find . -type d -name ".git"
+   17  cd ./OperatingSystem/.git
+   18  cp ~/ex4 ./week01
+   19  git add wekk01/ex4
+   20  git status
+   21  cd~
+   22  cd ~
+   23  cp ~/OperatingSystem/
+   24  cd ~/OperatingSystem/
+   25  git status
+   26  cp ~/ex4 ./week01
+   27  git add wekk01/ex4
+   28  git add week01/ex4
+   29  git commit -m "adding ex4"
+   30  git config --global user.email "alien.ablaeva.03@gmail.com"
+   31  git commit -m "adding ex4"
+   32  git push origin master
+   33  git branch -a
+   34  git fetch origin
+   35  git checkout master
+   36  git push origin master
+   37  git log
+   38  git remote -v
+   39  git push origit HEAD:master
+   40  git push origin HEAD:master
+   41  git push origin master
+   42  cd ~
+   43  clear
+   44  ls /
+   45  ls -ltr /
+   46  uname -a > ~/week01/info.txt
+   47  cd ~/week01
+   48  cat info.txt
+   49  nano info.txt
+   50  gedit info.txt
+   51  cd ~
+   52  history > ~/week01/ex2.txt
