@@ -2,7 +2,7 @@
 #include <math.h>
 
 void convert(long long int number, int source, int target){
-	int decimal = 0;
+	long long int decimal = 0;
 	int n_digit = 0;
 	int digit;
 	while(number>0){
