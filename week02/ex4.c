@@ -4,7 +4,7 @@
 void count(char string[], char letter){
 	int counter = 0;
 	for (int i = 0; i<strlen(string); i++){
-		if (string[i] == letter)
+		if (string[i] == letter || string[i]+32 == letter || string[i]-32==letter)
 			counter++;
 	}
 	printf("%c:%d", letter, counter);
