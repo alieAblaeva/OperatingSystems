@@ -1,6 +1,16 @@
 #include <stdio.h>
 
 int tribonacci(int n){
+	if(n<0 || n>37){
+		printf("wrong number");
+		return -1;
+	}
+	if(n==0)
+		return 0;
+	if(n==1)
+		return 1;
+	if(n==2)
+		return 1;
 	int tn = 0;
 	int tn_1 = 1;
 	int tn_2 = 1;
