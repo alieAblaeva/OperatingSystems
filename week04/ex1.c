@@ -8,7 +8,7 @@ int const_tri(int* p, int n){
 		return 0;
 	*p = 0;
 	*(p+2) = 1;
-	n -= 3;
+	n -= 2;
 	int temp;
 	for (;n;n--){
 		temp = *p + *(p+1) + *(p+2);
@@ -27,7 +27,7 @@ int main(){
 	*(p+1) = x;
 	*(p+2) = 2*x;
 	printf("%p  %p  %p\n", p, p+1, p+2);
-	printf("%d", const_tri(p, 7));
+	printf("%d", const_tri(p, 6));
 	free(p);
 	return 0;
 }
