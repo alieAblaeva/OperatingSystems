@@ -20,7 +20,7 @@ double area(struct Point a, struct Point b, struct Point c){
 	double x3y2 = c.x*b.y;
 	double x3y1 = c.x*a.y;
 	double x1y3 = a.x*c.y;
-	return abs(x1y2-x2y1+x2y3-x3y2+x3y1-x1y3)/2;
+	return fabs(x1y2-x2y1+x2y3-x3y2+x3y1-x1y3)/2;
 }
 
 int main(){
