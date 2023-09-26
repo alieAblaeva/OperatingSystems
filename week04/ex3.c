@@ -20,15 +20,15 @@ struct File {
     struct Directory directory;
 };
 int numOfFiles = 0;
-struct File* allFiles[256];
 
 void overwrite_to_file(struct File *file, const char *str) {
     strcpy(file->data, str);
-    file->size = sizeof(str);
+    file->size = strlen(file->data)+1;
 }
 
 void append_to_file(struct File *file, const char *str) {
     strcat(file->data, str);
+    file->size = strlen(file->data)+1;
 }
 
 void printp_file(struct File *file) {
