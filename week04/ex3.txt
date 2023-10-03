@@ -1,0 +1,32 @@
+When calling ex3 with n = 3, the processes in the tree of running processes look the following way:
+
+
+        |         |                 |      `-bash-+-ex3-+-ex3-+-ex3---ex3
+        |         |                 |             |     |     `-ex3
+        |         |                 |             |     |-ex3---ex3
+        |         |                 |             |     `-ex3
+      
+           
+           
+           
+When calling ex3 with n = t, the processes look the following way:
+
+        |         |                 |      `-bash-+-ex3-+-ex3-+-ex3-+-ex3-+-ex3---ex3
+        |         |                 |             |     |     |     |     `-ex3
+        |         |                 |             |     |     |     |-ex3---ex3
+        |         |                 |             |     |     |     `-ex3
+        |         |                 |             |     |     |-ex3-+-ex3---ex3
+        |         |                 |             |     |     |     `-ex3
+        |         |                 |             |     |     |-ex3---ex3
+        |         |                 |             |     |     `-ex3
+        |         |                 |             |     |-ex3-+-ex3-+-ex3---ex3
+        |         |                 |             |     |     |     `-ex3
+        |         |                 |             |     |     |-ex3---ex3
+        |         |                 |             |     |     `-ex3
+        |         |                 |             |     |-ex3-+-ex3---ex3
+        |         |                 |             |     |     `-ex3
+        |         |                 |             |     |-ex3---ex3
+        |         |                 |             |     `-ex3
+    
+        
+The total number of processes for n=3 is 8 and for n=5 it is 32. Hence, the number of processes grows exponentially and is equal to 2^n. This happens because each fork() creates the copy of the current and they keep executing the following lines, so next fork() will be executed by all previous processes.
