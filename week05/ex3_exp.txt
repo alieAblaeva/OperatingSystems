@@ -1,0 +1,11 @@
+m = 1: When using a single thread, the program took approximately 15.6 seconds to complete. This result reflects a purely sequential computation.
+
+m = 2: Using two threads, the execution time decreased to about 9.7 seconds. The reduction in time indicates that parallelism is beginning to benefit the computation.
+
+m = 4: With four threads, the execution time increased slightly to 13.9 seconds. This behavior suggests that the overhead of managing more threads partially offset the gains from parallelism.
+
+m = 10: When using ten threads, the program ran in approximately 8.4 seconds, showing a more significant improvement due to parallelism.
+
+m = 100: Surprisingly, increasing the number of threads to 100 did not lead to further speedup. The program completed in about 7.8 seconds, which was not much faster than ten threads. This result might indicate diminishing returns and increased thread management overhead.
+
+In summary, the findings in exercise 3 reveal that the performance improvements from multi-threading are not always linear. There is an optimal number of threads that balances parallelism benefits with the overhead of managing threads.
