@@ -1,0 +1,11 @@
+m = 1: Using a single thread, the program took approximately 17.98 seconds to complete. This result reflects a purely sequential computation and is slower than exercise 3 because of the additional mutex locking.
+
+m = 2: With two threads, the execution time decreased to about 13.79 seconds. The improvement compared to exercise 3 can be attributed to parallel primality checking, even with the mutex overhead.
+
+m = 4: Using four threads, the program ran in approximately 9.21 seconds, showing further benefits from parallelism.
+
+m = 10: With ten threads, the program completed in approximately 10.21 seconds. While more threads provided parallelism, the overhead from increased mutex operations slowed the execution slightly.
+
+m = 100: When using 100 threads, the program ran in about 10.25 seconds. Similar to exercise 3, this result suggests diminishing returns and indicates that managing a large number of threads can offset parallelism benefits.
+
+In summary, exercise 4 demonstrated that distributing primality checking among threads with proper mutex management can achieve parallelism. The optimal number of threads in depends on balancing parallelism and thread management overhead. Exercise 4 did not demonstrate better performance than Exercise 3.
