@@ -1,0 +1,5 @@
+    Waiting Time (wt): Round Robin has the highest average waiting time (avg_wt) of 10.142858 compared to FCFS (8.000000) and SJF (4.857143). This is due to the preemptive nature of the Round Robin algorithm, which can lead to frequent context switches and increased waiting times.
+
+    Turnaround Time (tat): Round Robin has an average turnaround time (avg_tat) of 14.428572, which is higher than that of FCFS (12.285714) and SJF (9.142858). The increased context switches in the Round Robin algorithm contribute to longer turnaround times.
+
+The Round Robin algorithm generally results in higher waiting and turnaround times compared to the First Come First Serve and Shortest Job First algorithms due to its preemptive nature and frequent context switches.

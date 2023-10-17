@@ -1,0 +1,14 @@
+First Come First Serve (FCFS):
+
+    The average waiting time (avg_wt) is 8.000000.
+    The average turnaround time (avg_tat) is 12.285714.
+
+Shortest Job First (SJF):
+
+    The average waiting time (avg_wt) is 4.857143.
+    The average turnaround time (avg_tat) is 9.142858.
+
+Explanation:
+
+    Waiting Time (wt): FCFS has a higher average waiting time than SJF. This is because in FCFS, processes are executed in the order of their arrival, which can lead to some processes having to wait longer for the CPU to become available. In SJF, the waiting time is reduced because the shortest jobs are executed first, minimizing the waiting time for subsequent processes.
+Turnaround Time (tat): FCFS has a higher average turnaround time than SJF. Turnaround time is the total time taken by a process to finish execution. In the FCFS algorithm, as the order is based on arrival time, processes with longer burst times might get executed first, leading to higher turnaround times compared to the SJF algorithm, where shorter jobs are executed first, resulting in lower turnaround times.
