@@ -11,7 +11,7 @@
 int main(){
 	long sz = 1024*sysconf(_SC_PAGESIZE);
 	printf("%ld\n", sz);
-	int size = 4*1024*1024;
+	int size = 500*1024*1024;
 	FILE* text = fopen("text.txt", "w");
 	int randomData = open("/dev/random", O_RDONLY);
 	if(randomData < 0){
