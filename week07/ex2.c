@@ -39,20 +39,22 @@ int main(){
 	int upper = 0;
 	FILE* newText = fopen("newText.txt", "w");
 	while(i<numOfChunks){
+		int upperInChunk = 0;
 		char *map = mmap(0, sz, PROT_READ | PROT_WRITE, MAP_SHARED, text1, i*sz);
 		if(map == MAP_FAILED)
 			printf("Error creating map\n");
 		for(int j = 0; j<sz; j++){
 			if(isupper(map[j])){
-				upper++;
+				upperInChunk++;
 				map[j] = tolower(map[j]);
 			}
 		}
+		upper+=upperInChunk;
 		i++;
 	}
 		
 	
-	printf("%d capital letters in total\n", upper);
+	printf("In total %d capital letters\n", upper);
 	
 	
 	return 0;

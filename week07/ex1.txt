@@ -1,0 +1,15 @@
+allocate_first_fit allocator started working
+number of queries: 54
+allocation time: 0.500134
+throughput: 107.971069
+allocate_worst_fit allocator started working
+number of queries: 54
+allocation time: 1.382941
+throughput: 39.047218
+allocate_best_fit allocator started working
+number of queries: 54
+allocation time: 1.331292
+throughput: 40.562099
+
+
+We can see that first fit allocator has the greatest thoughput because it does not have to go though the whole heap to allocate memory. On the other hand best fit and worst fit allocators have quite similar thoughput because both of them go though the whole heap to find smallest and greatest possible free space.
