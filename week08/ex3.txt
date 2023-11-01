@@ -1,0 +1,28 @@
+Running vmstat together with ex3.c we get such table:
+
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  1 1103052 169756   7656 426060  166  324   841   530 1242 3111 33 15 51  1  0
+0
+ 0  0 1103052 165476   7656 426108  252    0   252     0  834  627  4  3 92  1  0
+0
+ 0  0 1103052 162452   7656 426108    0    0     0   152  795  511  8  3 89  0  0
+0
+ 5  0 1103052 148844   7656 426108    0    0     0     0  952  780  8  6 86  0  0
+0
+ 0  0 1103052 139520   7656 426120    0    0     0     0  742  497  7  3 90  0  0
+0
+ 0  0 1103052 115076   7672 426164    0    0     0    76  862  625  9  6 85  1  0
+0
+ 0  0 1103052 107012   7672 426128    0    0     0     0  737  383  4  2 94  0  0
+0
+ 0  0 1103052  96680   7688 426112    0    0     0    52 1753  657 17  4 79  1  0
+0
+ 0  0 1103052  87860   7688 426120    0    0     0     0  747  528  4  4 92  0  0
+0
+ 0  0 1103052  77528   7688 426120    0    0     0     0  732  387  6  3 91  0  0
+Where si and so represent the amount of swaps.
+This indicates that firstly some memory pages were swapped in and some were swapped out to the disk to accomodate the memory allocation in the ex3.c. Then some memory was swapped in from the disk but no page was swapped out to the disk which probably means that we had enough memory for our program. After that both si and so are zeros because we have enough physical memory to accomodate the allocation without swapping memory.
+
+But when I increase the amount of bytes allocated on each iteration, the picture is different:
+the number of so increases as well as there is not anough memory in ram and the data is sent to the disk.
