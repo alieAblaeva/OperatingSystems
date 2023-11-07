@@ -9,36 +9,32 @@
 
 #define MAX_LINE 100
 
-int num_pages;
-
 struct PTE {
     int valid;
     int frame;
     int dirty;
     int referenced;
     int counter_nfu;
-    unsigned char reference_bits;
 };
 
-void ageing_setting(struct PTE* page_table, int number_of_pages) {
-    for (int i = 0; i < number_of_pages; i++) {
-        page_table[i].reference_bits >>= 1; 
-        if (page_table[i].referenced) {
-            page_table[i].reference_bits |= 0x80; 
-        } 
-    }
-}
+struct TLB_entry {
+    int page;
+    int frame;
+};
+
+struct TLB_entry TLB[20]; 
+
+
+int tlb_miss_count = 0;
+int total_access_count = 0;
 
 int main(int argc, char *argv[]) {
-    int number_of_requests = argc-3;
-    int number_of_hits = 0;
-    
     if (argc < 4) {
         fprintf(stderr, "Usage: %s <num_pages> <reference_string> <pager_pid>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
-    num_pages = atoi(argv[1]);
+    int num_pages = atoi(argv[1]);
     //char *reference_string = argv[2];
     int pager_pid = atoi(argv[argc - 1]);
 
@@ -62,47 +58,64 @@ int main(int argc, char *argv[]) {
         	strcpy(m, "Read");
         } else
         	strcpy(m, "Write");
-	printf("%s Request for page %d\n", m, page);
-	page_table[page].referenced = 1;
-	ageing_setting(page_table, num_pages);
-	page_table[page].counter_nfu++;
-        if (page_table[page].valid == 0) {
-            printf("It is not a valid page --> page fault\n");
-            printf("Ask pager to load it from disk (SIGUSR1 signal) and wait\n");
-            printf("-------------------------\n");
-            
-            page_table[page].referenced = getpid();
-            kill(pager_pid, SIGUSR1);
-            kill(getpid(), SIGSTOP);
-            printf("MMU resumed by SIGCONT signal from pager\n");
-        } else{
-        	printf("It is a valid page\n");
-        	number_of_hits++;
-	}
+        printf("%s Request for page %d\n", m, page);
+
+        int tlb_hit = 0;
+   
+        for (int j = 0; j < 20; j++) {
+            if (TLB[j].page == page) {
+                page_table[page].referenced = getpid(); 
+                printf("TLB Hit!\n");
+                tlb_hit = 1;
+                break;
+            }
+        }
+
+        if (!tlb_hit) {
+            tlb_miss_count++;
+            printf("TLB Miss!\n");
+            if (page_table[page].valid == 0) {
+                printf("It is not a valid page --> page fault\n");
+                printf("Ask pager to load it from disk (SIGUSR1 signal) and wait\n");
+                printf("-------------------------\n");
+
+                page_table[page].referenced = getpid();
+                kill(pager_pid, SIGUSR1);
+                kill(getpid(), SIGSTOP);
+                printf("MMU resumed by SIGCONT signal from pager\n");
+            } else
+                printf("It is a valid page\n");
+
+       
+            for (int j = 19; j > 0; j--) {
+                TLB[j] = TLB[j - 1];
+            }
+            TLB[0].page = page;
+            TLB[0].frame = page_table[page].frame;
+        }
+
         if (mode == 'W') {
             page_table[page].dirty = 1;
         }
-	
-        for(int i = 0; i<num_pages; i++){
-        	page_table[i].referenced = 0;
-        }
-        
+
         printf("Page table\n");
         for (int j = 0; j < num_pages; j++) {
             printf("Page %d ---> valid=%d, frame=%d, dirty=%d, referenced=%d\n", j, page_table[j].valid,
                    page_table[j].frame, page_table[j].dirty, page_table[j].referenced);
-                  
         }
         printf("-------------------------\n");
         printf("\n");
+
+        total_access_count++;
     }
 
     close(fd);
     printf("MMU sends SIGUSR1 to the pager.\n");
     kill(pager_pid, SIGUSR1);
-    sleep(2);
-    printf("Hits: %d\nMisses: %d\nHit Ratio: %f\n", number_of_hits, number_of_requests-number_of_hits, (float)number_of_hits/(float)number_of_requests);
     printf("MMU terminates.\n");
+
+    double tlb_miss_ratio = (double)tlb_miss_count / total_access_count;
+    printf("TLB miss ratio: %lf\n", tlb_miss_ratio);
 
     return 0;
 }

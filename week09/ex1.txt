@@ -1,0 +1,20 @@
+    Random Algorithm:
+        Hits: 91
+        Misses: 909
+        Hit Ratio: 0.091
+
+    Not Frequently Used (NFU) Algorithm:
+        Hits: 181
+        Misses: 819
+        Hit Ratio: 0.181
+
+    Aging Algorithm:
+        Hits: 103
+        Misses: 897
+        Hit Ratio: 0.103
+
+    The NFU algorithm has the highest hit ratio of 0.181, indicating that it performed the best among the three in this specific run.
+    The Aging algorithm has a slightly lower hit ratio of 0.103, indicating that it was less efficient in handling the memory access patterns compared to the NFU algorithm.
+    The Random algorithm has the lowest hit ratio of 0.091, suggesting that it was the least effective at reducing page faults and improving the hit rate compared to the other two algorithms.
+
+These results are specific to the given run and input. Further analysis and multiple runs might provide a more comprehensive understanding of the relative performance of each algorithm.
