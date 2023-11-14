@@ -1,1 +1,8 @@
+1
+After I move myfile1.txt from watched directory to /tmp and modified myfile11.txt, the monitor still reported the changes in myfile11.txt. It does because when you modify the content of a hard link, all other hard links to the same inode reflect that change because they are essentially different names pointing to the same underlying data.
 
+2
+The monitor did not record the changes in myfile13.txt because it is a softlink. When the content of the target file is modified, it does not affect the symbolic link itself, and therefore, the monitoring program does not register an event for the symbolic link.
+
+3
+Before deleting hard links of myfile11.txt the number of hardlinks is 3 (myfile11.txt, myfile12.txt, myfile1.txt) but when we use the delete function it becomes 2 because myfile12.txt is deleted but myfile1.txt is not as it is moved to another directory and the function deletes only hard links in the current directory
