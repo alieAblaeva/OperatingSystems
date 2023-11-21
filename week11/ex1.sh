@@ -29,7 +29,8 @@ mkdir ./lofsdisk
 # mounting the device on the created directory
 sudo mount /dev/loop18 ./lofsdisk
 
-# giving the user permissions on the directory and the device itself
+# giving the user who runs the script permissions on the directory
+# and the device itself
 sudo chown $USER ./lofsdisk
 sudo chown $USER:disk /dev/loop18
 sleep 2
